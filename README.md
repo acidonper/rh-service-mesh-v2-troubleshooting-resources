@@ -1,6 +1,6 @@
-# Service Mesh: Envoy & Istio Control Plane Tutorial Resources
+# Service Mesh: Troubleshooting Tutorial Resources
 
-Service Mesh: Envoy & Istio Control Plane Tutorial Resources
+Service Mesh: Troubleshooting Tutorial Resources
 
 ## 01 - Setup
 
@@ -52,48 +52,11 @@ oc process -f 03-jump-app-flows/03-jump-app-services.yaml --param-file=params.en
 oc process -f 03-jump-app-flows/04-jump-app-routes.yaml --param-file=params.env --ignore-unknown-parameters | oc create -f - -n istio-system
 ```
 
-## 04 - Review Red Hat Service Mesh objects
-
-- Modify _Jump App_ a specific Destination Rule using an Openshift Template 
+- Create _ServiceMeshMember_ Object 
 
 ```$bash
-oc process -f 04-istio-envoy-relationship/00-istio-envoy-rel-drs.yaml --param-file=params.env --ignore-unknown-parameters | oc create -f -
+oc process -f 03-jump-app-flows/05-jump-app-ns-smr.yaml--param-file=params.env --ignore-unknown-parameters | oc create -f -
 ```
-
-- Modify _Jump App_ a specific Virtual Service using an Openshift Template 
-
-```$bash
-oc process -f 04-istio-envoy-relationship/01-istio-envoy-rel-vss.yaml --param-file=params.env --ignore-unknown-parameters | oc create -f -
-```
-
-- Modify _Jump App_ a specific Service Entry using an Openshift Template 
-
-```$bash
-oc process -f 04-istio-envoy-relationship/02-istio-envoy-rel-ses.yaml --param-file=params.env --ignore-unknown-parameters | oc create -f -
-```
-
-## 05 - Understand Envoy Proxy
-
-- Deploy a _Jump App_ Envoy Filter using an Openshift Template 
-
-```$bash
-oc process -f 05-envoy-proxy/00-istio-envoy-rel-ef.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f - -n {namespace}
-```
-
-## 07 - Istio Global Services
-
-- Modify existing gateway object
-
-```$bash
-oc process -f 07-istio-sds/00-jump-app-front-gw.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f - -n istio-system
-```
-
-- Modify existing route object
-
-```$bash
-oc process -f 07-istio-sds/01-jump-app-front-route.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f - -n istio-system
-```
-
 
 ## Author Information
 
