@@ -27,10 +27,9 @@ objects:
         kind: Service
         name: istio-ingressgateway
       tls:
-        termination: edge
-        insecureEdgeTerminationPolicy: Redirect
+        termination: passthrough
       port:
-        targetPort: http2
+        targetPort: https
 parameters:
   - description: Tutorial User Namespace
     displayName: Tutorial User Namespace
