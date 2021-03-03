@@ -13,23 +13,10 @@ objects:
         kind: Service
         name: istio-ingressgateway
       tls:
-        termination: edge
+        termination: passthrough
         insecureEdgeTerminationPolicy: Redirect
       port:
         targetPort: http2
-  - apiVersion: route.openshift.io/v1
-    kind: Route
-    metadata:
-      name: front-javascript-${USER_NAMESPACE}
-    spec:
-      host: front-javascript-${USER_NAMESPACE}.${OCP_APPS_DOMAIN}
-      to:
-        kind: Service
-        name: istio-ingressgateway
-      tls:
-        termination: passthrough
-      port:
-        targetPort: https
 parameters:
   - description: Tutorial User Namespace
     displayName: Tutorial User Namespace

@@ -12,7 +12,7 @@ objects:
         istio: ingressgateway
       servers:
         - port:
-            number: 88
+            number: 80
             name: http
             protocol: HTTP
           hosts:
@@ -26,14 +26,11 @@ objects:
         istio: ingressgateway
       servers:
         - port:
-            number: 443
-            name: https
-            protocol: HTTPS
-          tls:
-            mode: SIMPLE
-            credentialName: ${USER_NAMESPACE}-credential
+            number: 80
+            name: http
+            protocol: HTTP
           hosts:
-          - frontt-javascript-${USER_NAMESPACE}.${OCP_APPS_DOMAIN}
+          - front-javascript-${USER_NAMESPACE}.${OCP_APPS_DOMAIN}
 parameters:
   - description: Tutorial User Namespace
     displayName: Tutorial User Namespace

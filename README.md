@@ -46,17 +46,32 @@ oc process -f 03-jump-app-flows/02-jump-app-drs.yaml --param-file=params.env --i
 oc process -f 03-jump-app-flows/03-jump-app-services.yaml --param-file=params.env --ignore-unknown-parameters | oc create -f -
 ```
 
-- Deploy _Jump App_ Routes using an Openshift Template 
-
-```$bash
-oc process -f 03-jump-app-flows/04-jump-app-routes.yaml --param-file=params.env --ignore-unknown-parameters | oc create -f - -n istio-system
-```
-
 - Create _ServiceMeshMember_ Object 
 
 ```$bash
-oc process -f 03-jump-app-flows/05-jump-app-ns-smr.yaml--param-file=params.env --ignore-unknown-parameters | oc create -f -
+oc process -f 03-jump-app-flows/04-jump-app-ns-smr.yaml--param-file=params.env --ignore-unknown-parameters | oc create -f -
 ```
+
+- Deploy _Jump App_ Routes using an Openshift Template 
+
+```$bash
+oc process -f 03-jump-app-flows/05-jump-app-routes.yaml --param-file=params.env --ignore-unknown-parameters | oc create -f - -n istio-system
+```
+
+## 04 - Ingress Traffic Troubleshooting 
+
+- Customize _Jump App_ with day 2 operations
+
+```$bash
+oc process -f 04-ingress-traffic-troubleshooting/00-jump-app-ingress-customization.yaml --param-file=params.env --ignore-unknown-parameters | oc create -f - -n istio-system
+```
+
+## 05 - Secure Traffic Troubleshooting 
+
+ 
+
+## 06 - Egress Traffic Troubleshooting 
+
 
 ## Author Information
 
