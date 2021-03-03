@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: jump-app-drs-template
+  name: 02-jump-app-drs
 objects:
   - apiVersion: networking.istio.io/v1alpha3
     kind: DestinationRule

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: jump-app-vss-template
+  name: 01-jump-app-vss
 objects:
   - apiVersion: networking.istio.io/v1alpha3
     kind: VirtualService

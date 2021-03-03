@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: jump-app-services-template
+  name: 03-jump-app-services
 objects:
   - apiVersion: v1
     kind: Service
