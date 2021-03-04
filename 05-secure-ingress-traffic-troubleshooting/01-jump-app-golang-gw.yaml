@@ -28,4 +28,4 @@ parameters:
   - description: Openshift Apps Domain
     displayName: Openshift Apps Domain
     name: OCP_APPS_DOMAIN
-    required: truecat: +: No such file or directory
+    required: true
