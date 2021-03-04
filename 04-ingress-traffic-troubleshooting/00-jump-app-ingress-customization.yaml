@@ -45,6 +45,20 @@ objects:
       - name: v1
         labels:
           version: fail
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        app: back-golang
+      name: back-golang
+    spec:
+      ports:
+        - name: http-8442
+          port: 8443
+          protocol: TCP
+          targetPort: 8442   
+      selector:
+        app: back-golang
 parameters:
   - description: Tutorial User Namespace
     displayName: Tutorial User Namespace
