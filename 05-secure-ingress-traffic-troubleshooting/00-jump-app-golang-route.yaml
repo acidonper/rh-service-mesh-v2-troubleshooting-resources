@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: jump-app-routes-template
+  name: 00-jump-app-golang-route
 objects:
   - apiVersion: route.openshift.io/v1
     kind: Route
