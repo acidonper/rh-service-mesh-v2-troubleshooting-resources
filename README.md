@@ -75,7 +75,24 @@ oc process -f 04-ingress-traffic-troubleshooting/01-jump-app-back-golang-svc.yam
 
 ## 05 - Secure Traffic Troubleshooting 
 
- 
+- Modify _Jump App_ back-golang route
+
+```$bash
+oc process -f 04-ingress-traffic-troubleshooting/00-jump-app-ingress-customization.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f 
+```
+
+- Modify _Jump App_ back-golang gateway
+
+```$bash
+oc process -f 04-ingress-traffic-troubleshooting/01-jump-app-back-golang-svc.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+```
+
+- Secure _Jump App_ services
+
+```$bash
+oc process -f 05-secure-ingress-traffic-troubleshooting/02-jump-app-sec-services.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+```
+
 
 ## 06 - Egress Traffic Troubleshooting 
 
