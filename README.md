@@ -96,6 +96,43 @@ oc process -f 05-secure-ingress-traffic-troubleshooting/02-jump-app-sec-services
 
 ## 06 - Egress Traffic Troubleshooting 
 
+- Deploy the Nginx server
+
+```$bash
+oc process -f 06-secure-egress-traffic-troubleshooting/00-nginx-svc-pod.yml --param-file=params.env --ignore-unknown-parameters | oc apply -f - 
+```
+
+- Create testing Service and Deployment
+
+```$bash
+oc process -f 06-secure-egress-traffic-troubleshooting/02-jump-app-sleep-svc-pod.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+```
+
+- Create a ServiceEntry and a VirtualService in your namespace
+
+```$bash
+oc process -f 06-secure-egress-traffic-troubleshooting/01-jump-app-nginx-vs-se.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f - 
+```
+
+- Clean the ServiceEntry and VirtualService in your namespace
+
+```$bash
+oc process -f 06-secure-egress-traffic-troubleshooting/01-jump-app-nginx-vs-se.yaml --param-file=params.env --ignore-unknown-parameters | oc delete -f - 
+```
+
+- Create a Gateway for nginx.example.com, port 443, and destination rules and virtual services to direct the traffic through the egress gateway and from the egress gateway to the external service
+
+```$bash
+oc process -f 06-secure-egress-traffic-troubleshooting/03-jump-app-egress-gw-dr.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f - 
+```
+
+## 07 - Troubleshooting Tools
+
+- Add delay to your applications
+
+```$bash
+oc process -f 07-troubleshooting-tools/00-jump-app-delay.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f - 
+```
 
 ## Author Information
 
