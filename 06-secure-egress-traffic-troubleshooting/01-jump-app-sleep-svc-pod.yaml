@@ -1,7 +1,7 @@
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
-  name: 02-jump-app-sleep-svc-pod
+  name: 01-jump-app-sleep-svc-pod
 objects:
 # Copyright 2017 Istio Authors
 #
