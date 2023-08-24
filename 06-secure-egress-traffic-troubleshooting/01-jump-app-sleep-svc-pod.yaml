@@ -46,8 +46,8 @@ objects:
         spec:
           containers:
           - name: sleep
-            image: tutum/curl
-            command: ["/bin/sleep","infinity"]
+            image: ubi8/ubi-minimal:latest
+            command: ["/bin/sleep","31536000"]
             imagePullPolicy: IfNotPresent
             volumeMounts:
             - name: nginx-client-certs

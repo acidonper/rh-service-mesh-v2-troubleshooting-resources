@@ -17,9 +17,7 @@ objects:
             number: 443
           tls:
             mode: MUTUAL
-            clientCertificate: /etc/istio/${USER_NAMESPACE}-mesh-external/nginx-client-certs/tls.crt
-            privateKey: /etc/istio/${USER_NAMESPACE}-mesh-external/nginx-client-certs/tls.key
-            caCertificates: /etc/istio/${USER_NAMESPACE}-mesh-external/nginx-ca-certs/example.com.crt
+            credentialName: ${USER_NAMESPACE}-mesh-external-egress-nginx-client-certs
             sni: my-nginx.${USER_NAMESPACE}-mesh-external.svc.cluster.local
   - apiVersion: networking.istio.io/v1alpha3
     kind: ServiceEntry
